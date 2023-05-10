@@ -14,8 +14,8 @@ public class Articulo {
     private String foto;
     private String descripcion;
     private String id;
-    private String id_comentario;
-    private String id_usuario;
+//    private String id_comentario;
+//    private String id_usuario;
 
     public Articulo() {
     }
@@ -25,8 +25,8 @@ public class Articulo {
         this.foto = foto;
         this.descripcion = descripcion;
         this.id = id;
-        this.id_comentario = id_comentario;
-        this.id_usuario = id_usuario;
+//        this.id_comentario = id_comentario;
+//        this.id_usuario = id_usuario;
     }
 
     public Articulo(String id) {
@@ -65,29 +65,29 @@ public class Articulo {
         this.id = id;
     }
 
-    public String getId_comentario() {
-        return id_comentario;
-    }
-
-    public void setId_comentario(String id_comentario) {
-        this.id_comentario = id_comentario;
-    }
-
-    public String getId_usuario() {
-        return id_usuario;
-    }
-
-    public void setId_usuario(String id_usuario) {
-        this.id_usuario = id_usuario;
-    }
+//    public String getId_comentario() {
+//        return id_comentario;
+//    }
+//
+//    public void setId_comentario(String id_comentario) {
+//        this.id_comentario = id_comentario;
+//    }
+//
+//    public String getId_usuario() {
+//        return id_usuario;
+//    }
+//
+//    public void setId_usuario(String id_usuario) {
+//        this.id_usuario = id_usuario;
+//    }
 
     @Override
     public String toString() {
         return "Articulo{" + "titulo=" + titulo + 
-                ", foto=" + foto + ", descripcion=" 
-                + descripcion + ", id=" + id +
-                ", id_comentario=" + id_comentario + 
-                ", id_usuario=" + id_usuario + '}';
+                ", foto=" + foto + ", descripcion=" + 
+                descripcion + ", id=" + id + '}';
     }
+
+    
 
 }
