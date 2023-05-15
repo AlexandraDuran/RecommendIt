@@ -27,10 +27,7 @@ public class Articulo {
         this.id = id;
     }
     
-//    public Usuario (int id){
-//        
-//    }
-
+  
     public String getTitulo() {
         return titulo;
     }
@@ -62,10 +59,6 @@ public class Articulo {
     public void setId(int id) {
         this.id = id;
     }
-
-    
-
-
 
     @Override
     public String toString() {
