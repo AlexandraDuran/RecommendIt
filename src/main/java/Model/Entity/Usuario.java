@@ -13,12 +13,12 @@ public class Usuario {
     private String correo;
     private String usuario;
     private String contraseña;
-    private String id;
+    private int id;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String correo, String usuario, String contraseña, String id) {
+    public Usuario(String nombre, String correo, String usuario, String contraseña, int id) {
         this.nombre = nombre;
         this.correo = correo;
         this.usuario = usuario;
@@ -26,7 +26,7 @@ public class Usuario {
         this.id = id;
     }
     
-    public Usuario (String id){
+    public Usuario (int id){
         this.id = id;
     }
 
@@ -62,13 +62,14 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
+
 
     @Override
     public String toString() {

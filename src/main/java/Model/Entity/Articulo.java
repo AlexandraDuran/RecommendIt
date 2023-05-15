@@ -13,25 +13,23 @@ public class Articulo {
     private String titulo;
     private String foto;
     private String descripcion;
-    private String id;
-//    private String id_comentario;
-//    private String id_usuario;
+    private int id;
+//    private int id_comentario;
+//    private int id_usuario;
 
     public Articulo() {
     }
 
-    public Articulo(String titulo, String foto, String descripcion, String id, String id_comentario, String id_usuario) {
+    public Articulo(String titulo, String foto, String descripcion, int id) {
         this.titulo = titulo;
         this.foto = foto;
         this.descripcion = descripcion;
         this.id = id;
-//        this.id_comentario = id_comentario;
-//        this.id_usuario = id_usuario;
     }
-
-    public Articulo(String id) {
-        this.id = id;
-    }
+    
+//    public Usuario (int id){
+//        
+//    }
 
     public String getTitulo() {
         return titulo;
@@ -57,29 +55,17 @@ public class Articulo {
         this.descripcion = descripcion;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-//    public String getId_comentario() {
-//        return id_comentario;
-//    }
-//
-//    public void setId_comentario(String id_comentario) {
-//        this.id_comentario = id_comentario;
-//    }
-//
-//    public String getId_usuario() {
-//        return id_usuario;
-//    }
-//
-//    public void setId_usuario(String id_usuario) {
-//        this.id_usuario = id_usuario;
-//    }
+    
+
+
 
     @Override
     public String toString() {
