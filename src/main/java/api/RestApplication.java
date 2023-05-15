@@ -4,10 +4,16 @@
  */
 package api;
 
+import jakarta.ws.rs.ApplicationPath;
+import jakarta.ws.rs.core.Application;
+
 /**
  *
  * @author Anyela Herrera
+ * 
  */
-public class RestApplication {
+ @ApplicationPath("/api")
+public class RestApplication extends Application{
+   
     
 }
