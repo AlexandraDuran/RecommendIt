@@ -63,10 +63,6 @@ public class Articulo {
         this.id = id;
     }
 
-    
-
-
-
     @Override
     public String toString() {
         return "Articulo{" + "titulo=" + titulo + 
