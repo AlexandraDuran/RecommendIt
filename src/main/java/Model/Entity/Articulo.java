@@ -19,6 +19,9 @@ public class Articulo {
 
     public Articulo() {
     }
+    
+    public Articulo(int id) {
+    }
 
     public Articulo(String titulo, String foto, String descripcion, int id) {
         this.titulo = titulo;
