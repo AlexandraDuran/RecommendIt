@@ -24,7 +24,7 @@ import java.util.List;
  * @author Anyela Herrera
  */
 @Path("/apiusuario")
-public class UuarioResource {
+public class UsuarioResource {
     UsuarioDao usuarioDao = new UsuarioDao();
 
     @GET
