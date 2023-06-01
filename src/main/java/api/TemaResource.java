@@ -4,8 +4,8 @@
  */
 package api;
 
-import Model.Dao.UsuarioDao;
-import Model.Entity.Usuario;
+import Model.Dao.TemaDao;
+import Model.Entity.Tema;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 
@@ -23,45 +23,47 @@ import java.util.List;
  *
  * @author Anyela Herrera
  */
-@Path("/apiusuario")
-public class UsuarioResource {
-    UsuarioDao usuarioDao = new UsuarioDao();
+@Path("/apitema")
+public class TemaResource {
+    TemaDao temaDao = new TemaDao();
 
     @GET
-    @Path("/usuario")
+    @Path("/temas")
     @Produces(MediaType.APPLICATION_JSON)
     public Response consultar() {
-        List<Usuario> usuarios = new ArrayList<>();
-        usuarios = usuarioDao.consultar();
+        List<Tema> temas = new ArrayList<>();
+        temas = temaDao.consultar();
         return Response
                 .status(200)
                 .header("Access-Control-Allow-Origin", "*")
-                .entity(usuarios)
+                .entity(temas)
                 .build();
     }
 
     @GET
-    @Path("/usuario/{id}")
+    @Path("/tema/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response consultarId(@PathParam("id") String id) {
-        Usuario usuario = new Usuario(id);
+    public Response consultarId(@PathParam("id") int id) {
+        Tema tema = new Tema(id);
         return Response
                 .status(200)
                 .header("Access-Control-Allow-Origin", "*")
-                .entity(usuarioDao.consultarId(usuario))
+                .entity(temaDao.consultarId(tema))
                 .build();
     }
 
     @POST
-    @Path("/crearusuario")
+    @Path("/creartema")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response crear(Usuario usuario) {
+    public Response crear(Tema tema) {
         try {
-            usuarioDao.Insertar(usuario);
-            return Response.status(Response.Status.CREATED).entity(usuario).build();
+            temaDao.Insertar(tema);
+            return Response.status(Response.Status.CREATED).entity(tema).build();
         } catch (Exception ex) {
+            System.out.println(ex.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(ex.getMessage()).build();
+            
         }
     }
 
@@ -69,26 +71,26 @@ public class UsuarioResource {
 //    @Path("/usuariodelete/{id}")
 //    @Produces(MediaType.APPLICATION_JSON)
 //    public Response borrar(@PathParam("id") String id) {
-//        Usuario usuario = new Usuario(id);
+//        Tema usuario = new Tema(id);
 //        int i = usuarioDao.borrar(usuario);
 //        if (i == 0) {
 //            return Response
 //                    .status(Response.Status.BAD_REQUEST)
 //                    .header("Access-Control-Allow-Origin", "*")
-//                    .entity("Usuario not found")
+//                    .entity("Tema not found")
 //                    .build();
 //        } else {
 //            return Response.ok("Correcto").build();
 //        }
 //    }
-    @Path("/updateusuario")
+    @Path("/updatetema")
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response actualizar(Usuario usuario) {
+    public Response actualizar(Tema tema) {
        try{
-            usuarioDao.actualizar(usuario);
-            return Response.status(Response.Status.CREATED).entity(usuario).build();
+            temaDao.actualizar(tema);
+            return Response.status(Response.Status.CREATED).entity(tema).build();
         }
         catch(Exception ex)
         {

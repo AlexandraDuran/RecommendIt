@@ -15,6 +15,6 @@ public interface IUsuario {
     public int Insertar(Usuario usuario);
     public List<Usuario> consultar();
     public Usuario consultarId(Usuario usuario);
-    public int borrar(Usuario usuario);
+//    public int borrar(Usuario usuario);
     public int actualizar(Usuario usuario);
 }

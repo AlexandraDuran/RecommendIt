@@ -11,73 +11,86 @@ package Model.Entity;
 public class Usuario {
     private String nombre;
     private String correo;
-    private String usuario;
-    private String contraseña;
-    private int id;
+    private String contrasena;
+    private String id;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String correo, String usuario, String contraseña, int id) {
+    public Usuario(String nombre, String correo, String contrasena, String id) {
         this.nombre = nombre;
         this.correo = correo;
-        this.usuario = usuario;
-        this.contraseña = contraseña;
-        this.id = id;
-    }
-    
-    public Usuario (int id){
+        this.contrasena = contrasena;
         this.id = id;
     }
 
+    public Usuario(String id) {
+        this.id = id;
+    }
+
+    
+    /**
+     * @return the nombre
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * @param nombre the nombre to set
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * @return the correo
+     */
     public String getCorreo() {
         return correo;
     }
 
+    /**
+     * @param correo the correo to set
+     */
     public void setCorreo(String correo) {
         this.correo = correo;
     }
 
-    public String getUsuario() {
-        return usuario;
+    /**
+     * @return the contraseña
+     */
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    /**
+     * @param contrasena the contraseña to set
+     */
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
-
-    public int getId() {
+    /**
+     * @return the id
+     */
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
         this.id = id;
     }
-
 
     @Override
     public String toString() {
         return "Usuario{" + "nombre=" + nombre + 
-                ", correo=" + correo + 
-                ", usuario=" + usuario + 
-                ", contrase\u00f1a=" + contraseña + 
-                ", id=" + id + '}';
+                ", correo=" + correo + ", contrasena=" + 
+                contrasena + ", id=" + id + '}';
     }
-    
+
+   
 }

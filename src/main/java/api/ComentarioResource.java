@@ -3,9 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package api;
-
-import Model.Dao.UsuarioDao;
-import Model.Entity.Usuario;
+import Model.Dao.ComentarioDao;
+import Model.Entity.Comentario;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 
@@ -23,43 +22,43 @@ import java.util.List;
  *
  * @author Anyela Herrera
  */
-@Path("/apiusuario")
-public class UsuarioResource {
-    UsuarioDao usuarioDao = new UsuarioDao();
+@Path("/apicomentario")
+public class ComentarioResource {
+    ComentarioDao comentarioDao = new ComentarioDao();
 
     @GET
-    @Path("/usuario")
+    @Path("/comentario")
     @Produces(MediaType.APPLICATION_JSON)
     public Response consultar() {
-        List<Usuario> usuarios = new ArrayList<>();
-        usuarios = usuarioDao.consultar();
+        List<Comentario> comentarios = new ArrayList<>();
+        comentarios = comentarioDao.consultar();
         return Response
                 .status(200)
                 .header("Access-Control-Allow-Origin", "*")
-                .entity(usuarios)
+                .entity(comentarios)
                 .build();
     }
 
     @GET
-    @Path("/usuario/{id}")
+    @Path("/comentario/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response consultarId(@PathParam("id") String id) {
-        Usuario usuario = new Usuario(id);
+    public Response consultarId(@PathParam("id") int id) {
+        Comentario comentario = new Comentario(id);
         return Response
                 .status(200)
                 .header("Access-Control-Allow-Origin", "*")
-                .entity(usuarioDao.consultarId(usuario))
+                .entity(comentarioDao.consultarId(comentario))
                 .build();
     }
 
     @POST
-    @Path("/crearusuario")
+    @Path("/crearcomentario")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response crear(Usuario usuario) {
+    public Response crear(Comentario comentario) {
         try {
-            usuarioDao.Insertar(usuario);
-            return Response.status(Response.Status.CREATED).entity(usuario).build();
+            comentarioDao.Insertar(comentario);
+            return Response.status(Response.Status.CREATED).entity(comentario).build();
         } catch (Exception ex) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(ex.getMessage()).build();
         }
@@ -69,26 +68,26 @@ public class UsuarioResource {
 //    @Path("/usuariodelete/{id}")
 //    @Produces(MediaType.APPLICATION_JSON)
 //    public Response borrar(@PathParam("id") String id) {
-//        Usuario usuario = new Usuario(id);
+//        Comentario usuario = new Comentario(id);
 //        int i = usuarioDao.borrar(usuario);
 //        if (i == 0) {
 //            return Response
 //                    .status(Response.Status.BAD_REQUEST)
 //                    .header("Access-Control-Allow-Origin", "*")
-//                    .entity("Usuario not found")
+//                    .entity("Comentario not found")
 //                    .build();
 //        } else {
 //            return Response.ok("Correcto").build();
 //        }
 //    }
-    @Path("/updateusuario")
+    @Path("/updatecomentario")
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response actualizar(Usuario usuario) {
+    public Response actualizar(Comentario comentario) {
        try{
-            usuarioDao.actualizar(usuario);
-            return Response.status(Response.Status.CREATED).entity(usuario).build();
+            comentarioDao.actualizar(comentario);
+            return Response.status(Response.Status.CREATED).entity(comentario).build();
         }
         catch(Exception ex)
         {

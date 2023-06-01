@@ -6,7 +6,7 @@ package Model.Entity;
 
 /**
  *
- * @author Anyela Herrera
+ * @author Anyela Herrera actual
  */
 public class Articulo {
 
@@ -15,22 +15,23 @@ public class Articulo {
     private String descripcion;
     private int id;
 //    private int id_comentario;
-//    private int id_usuario;
+    private Usuario id_usuario;
 
     public Articulo() {
     }
-    
+
     public Articulo(int id) {
+        this.id=id;
     }
 
-    public Articulo(String titulo, String foto, String descripcion, int id) {
+    public Articulo(String titulo, String foto, String descripcion, int id, Usuario id_usuario) {
         this.titulo = titulo;
         this.foto = foto;
         this.descripcion = descripcion;
         this.id = id;
+        this.id_usuario = id_usuario;
     }
-    
-  
+
     public String getTitulo() {
         return titulo;
     }
@@ -63,13 +64,20 @@ public class Articulo {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "Articulo{" + "titulo=" + titulo + 
-                ", foto=" + foto + ", descripcion=" + 
-                descripcion + ", id=" + id + '}';
+    public Usuario getId_usuario() {
+        return id_usuario;
     }
 
-    
+    public void setId_usuario(Usuario id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
+    @Override
+    public String toString() {
+        return "Articulo{" + "titulo=" + titulo
+                + ", foto=" + foto + ", descripcion="
+                + descripcion + ", id=" + id
+                + ", id_usuario=" + id_usuario + '}';
+    }
 
 }

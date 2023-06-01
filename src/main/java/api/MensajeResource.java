@@ -4,8 +4,8 @@
  */
 package api;
 
-import Model.Dao.UsuarioDao;
-import Model.Entity.Usuario;
+import Model.Dao.MensajeDao;
+import Model.Entity.Mensaje;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 
@@ -23,43 +23,43 @@ import java.util.List;
  *
  * @author Anyela Herrera
  */
-@Path("/apiusuario")
-public class UsuarioResource {
-    UsuarioDao usuarioDao = new UsuarioDao();
+@Path("/apimensaje")public class MensajeResource {
+    
+    MensajeDao mensajeDao = new MensajeDao();
 
     @GET
-    @Path("/usuario")
+    @Path("/mensaje")
     @Produces(MediaType.APPLICATION_JSON)
     public Response consultar() {
-        List<Usuario> usuarios = new ArrayList<>();
-        usuarios = usuarioDao.consultar();
+        List<Mensaje> mensajes = new ArrayList<>();
+        mensajes = mensajeDao.consultar();
         return Response
                 .status(200)
                 .header("Access-Control-Allow-Origin", "*")
-                .entity(usuarios)
+                .entity(mensajes)
                 .build();
     }
 
     @GET
-    @Path("/usuario/{id}")
+    @Path("/mensaje/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response consultarId(@PathParam("id") String id) {
-        Usuario usuario = new Usuario(id);
+    public Response consultarId(@PathParam("id") int id) {
+        Mensaje mensaje = new Mensaje(id);
         return Response
                 .status(200)
                 .header("Access-Control-Allow-Origin", "*")
-                .entity(usuarioDao.consultarId(usuario))
+                .entity(mensajeDao.consultarId(mensaje))
                 .build();
     }
 
     @POST
-    @Path("/crearusuario")
+    @Path("/crearmensaje")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response crear(Usuario usuario) {
+    public Response crear(Mensaje mensaje) {
         try {
-            usuarioDao.Insertar(usuario);
-            return Response.status(Response.Status.CREATED).entity(usuario).build();
+            mensajeDao.Insertar(mensaje);
+            return Response.status(Response.Status.CREATED).entity(mensaje).build();
         } catch (Exception ex) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(ex.getMessage()).build();
         }
@@ -69,26 +69,26 @@ public class UsuarioResource {
 //    @Path("/usuariodelete/{id}")
 //    @Produces(MediaType.APPLICATION_JSON)
 //    public Response borrar(@PathParam("id") String id) {
-//        Usuario usuario = new Usuario(id);
+//        Mensaje usuario = new Mensaje(id);
 //        int i = usuarioDao.borrar(usuario);
 //        if (i == 0) {
 //            return Response
 //                    .status(Response.Status.BAD_REQUEST)
 //                    .header("Access-Control-Allow-Origin", "*")
-//                    .entity("Usuario not found")
+//                    .entity("Mensaje not found")
 //                    .build();
 //        } else {
 //            return Response.ok("Correcto").build();
 //        }
 //    }
-    @Path("/updateusuario")
+    @Path("/updatemensaje")
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response actualizar(Usuario usuario) {
+    public Response actualizar(Mensaje mensaje) {
        try{
-            usuarioDao.actualizar(usuario);
-            return Response.status(Response.Status.CREATED).entity(usuario).build();
+            mensajeDao.actualizar(mensaje);
+            return Response.status(Response.Status.CREATED).entity(mensaje).build();
         }
         catch(Exception ex)
         {
