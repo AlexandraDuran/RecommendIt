@@ -181,5 +181,4 @@ public class UsuarioDao implements IUsuario {
         }
         return resultado;
     }
-
 }

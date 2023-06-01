@@ -188,5 +188,4 @@ public class ArticuloDao implements IArticulo {
         }
         return resultado;
     }
-
 }

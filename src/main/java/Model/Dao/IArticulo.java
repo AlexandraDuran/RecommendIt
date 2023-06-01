@@ -16,5 +16,4 @@ public interface IArticulo {
     public Articulo consultarId(Articulo articulo);
     public int borrar(Articulo articulo);
     public int actualizar(Articulo articulo);
-    
 }

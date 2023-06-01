@@ -190,5 +190,4 @@ public class ComentarioDao implements IComentario {
         }
         return resultado;
     }
-
 }
